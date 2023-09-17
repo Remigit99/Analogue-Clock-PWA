@@ -1,0 +1,94 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: grey;
+    font-family: cursive;
+}
+
+.clock {
+    width: 400px;
+    height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    /* background-color: aliceblue; */
+    position: relative;
+    background: url(./Images/model-3.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    /* box-shadow: 0 0 10px purple; */
+}
+
+.clock::before {
+    content: "";
+    width: 105%;
+    height: 105%;
+    background-color: peru;
+    position: absolute;
+    border-radius: 50%;
+    z-index: -2;
+}
+
+.num {
+    position: absolute;
+    transform: rotate(calc(30deg * var(--n)));
+    text-align: center;
+    inset: 20px;
+    font-size: 1.5rem;
+}
+
+.num span {
+    transform: rotate(calc(-30deg * var(--n)));
+    display: inline-block;
+
+}
+
+.middle {
+    width: 20px;
+    height: 20px;
+    background-color: black;
+    border-radius: 50%;
+    z-index: 3;
+    position: relative;
+}
+
+.hrs__hand,
+.min__hand,
+.sec__hand {
+    --rotate: 0;
+    position: absolute;
+    background-color: black;
+    border-radius: 1rem 1rem 0 0;
+    left: 50%;
+    bottom: 50%;
+    transform: translate(-50%) rotate(calc(var(--rotate) * 1deg));
+    transform-origin: bottom;
+}
+
+.hrs__hand {
+    width: 6px;
+    height: 5rem;
+    background-color: red;
+}
+
+.min__hand {
+    height: 7rem;
+    width: 7px;
+}
+
+.sec__hand {
+    width: 10px;
+    height: 8.5rem;
+    background-color: blue;
+}
